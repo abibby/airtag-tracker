@@ -25,7 +25,7 @@ EXPOSE 8080
 
 FROM tesseractshadow/tesseract4re
 
-RUN apt update && apt insatll -y ssh
+RUN apt update && apt install -y ssh
 
 COPY --from=build /airtag-tracker /airtag-tracker
 

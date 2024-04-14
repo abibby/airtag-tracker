@@ -3,8 +3,12 @@ services:
   airtag-tracker:
     build: .
     environment:
-      PASSWORD: test
+      HOME_ASSISTANT_BASE: ${HOME_ASSISTANT_BASE}
+      HOME_ASSISTANT_KEY: ${HOME_ASSISTANT_KEY}
+      PASSWORD: ${PASSWORD}
     ports:
       - 2222:2222
     volumes:
       - ./.ssh:/.ssh
+      - ./images:/images
+      - ./airtag-tracker:/airtag-tracker
