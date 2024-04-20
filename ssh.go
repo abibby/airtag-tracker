@@ -6,6 +6,8 @@ import (
 	"os/exec"
 )
 
+const keyPath = "/.ssh/id_rsa"
+
 func generateKeys() error {
 	_, err := os.Stat(keyPath)
 	if err == nil {

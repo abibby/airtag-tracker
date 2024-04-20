@@ -3,6 +3,7 @@ module github.com/abibby/airtag-tracker
 go 1.22.1
 
 require (
+	github.com/davecgh/go-spew v1.1.1
 	github.com/gliderlabs/ssh v0.3.7
 	github.com/stoewer/go-strcase v1.3.0
 )
