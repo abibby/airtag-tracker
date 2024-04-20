@@ -11,4 +11,4 @@ services:
     volumes:
       - ./.ssh:/.ssh
       - ./images:/images
-      - ./airtag-tracker:/airtag-tracker
+      # - ./airtag-tracker:/airtag-tracker

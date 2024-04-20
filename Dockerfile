@@ -11,7 +11,7 @@ RUN go mod download
 
 # Copy the source code. Note the slash at the end, as explained in
 # https://docs.docker.com/reference/dockerfile/#copy
-COPY *.go ./
+COPY . ./
 
 # Build
 RUN CGO_ENABLED=0 GOOS=linux go build -o /airtag-tracker
@@ -23,9 +23,12 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o /airtag-tracker
 # https://docs.docker.com/reference/dockerfile/#expose
 EXPOSE 8080
 
-FROM tesseractshadow/tesseract4re
+FROM debian:bookworm
 
-RUN apt update && apt install -y ssh
+RUN apt-get update \
+    && apt-get upgrade -y \
+    && apt-get install -y ssh tesseract-ocr ca-certificates \
+    && apt-get clean
 
 COPY --from=build /airtag-tracker /airtag-tracker
 
